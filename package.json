@@ -1,0 +1,34 @@
+{
+  "name": "react-2",
+  "version": "1.0.0",
+  "description": "this is atul",
+  "main": "Appp.js",
+  "dependencies": {
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "process": "^0.11.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactdom": "^2.0.0",
+    "scheduler": "^0.23.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/02atul/namaste-react.git"
+  },
+  "keywords": [
+    "reacct"
+  ],
+  "author": "atul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/02atul/namaste-react/issues"
+  },
+  "homepage": "https://github.com/02atul/namaste-react#readme"
+}
