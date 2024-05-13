@@ -11,7 +11,7 @@ const {
      costForTwo,
      deliveryTime,
 
-} = resdata?.data;
+} = resdata?.info;
  return (
     <div className="res-card"> 
     <img className="res-logo" src={
