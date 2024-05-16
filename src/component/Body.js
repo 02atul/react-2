@@ -1,8 +1,11 @@
 import RestCart from "./Restaurant";
 import { useEffect, useState } from "react";
 import resList from "../utilis/mockdata";
+import Shimmer from "./shimmer";
 const Body = () => {
   const [listOfRestaurant,setListOfRestaurant] = useState([])
+
+const [searchText,setsearchText] = useState("");
 
   useEffect(()=>{
    fetchData()
@@ -17,23 +20,46 @@ const Body = () => {
                 console.log(json);
                 
 
-                  setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+                  setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             }
-           
-    return (
 
+            // if(listOfRestaurant.length===0){
+            //     return <Shimmer/>
+            // }
+           
+    return  listOfRestaurant.length===0 ? 
+    (<Shimmer/>)
+    :
+    (
         <div className="body"> 
             <div className="filter"> 
+          <div className="search">
+           <input type="text" className="search-box" value={searchText}
+           onChange={(e)=>{
+            setsearchText(e.target.value);
+
+           }}
+           />
+           <button className="searchh"
+            onClick={()=>{
+                console.log(searchText);
+                 const filterRestro = listOfRestaurant.filter(
+                    (res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setListOfRestaurant(filterRestro)
+
+            }}>Search</button>
+           </div>
            < button className="filter-btn"
              onClick={()=>{
                 const filterList = resList.filter(
-                    (res)=>res.data.avgRating>4
+                    (res)=>res.info.avgRating>4
 
                 );
                 setListOfRestaurant(filterList);
              }}
            >
-            Top Rated Restaurants    </button>
+               </button>
              </div>
             
             <div className="res-container"> 
